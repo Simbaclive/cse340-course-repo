@@ -1,3 +1,26 @@
 <%- include('partials/header') %>
-<p>Explore current community service projects.</p>
+    <main>
+        <h1><%= title %></h1>
+        <p>Join us in serving our communities at one of our upcoming group events:</p>
+        
+        <ul class="projects-list">
+            <% projects.forEach(project => { %>
+                <% 
+                    // Formats raw database strings into clean user-friendly local representations
+                    const formattedDate = new Date(project.date).toLocaleDateString('en-US', {
+                        weekday: 'short',
+                        year: 'numeric',
+                        month: 'short',
+                        day: 'numeric'
+                    });
+                %>
+                <li>
+                    <strong><%= formattedDate %></strong>: 
+                    <%= project.title %> 
+                    <em>(<%= project.organization_name %>)</em>
+                    <p style="margin: 4px 0 12px 20px; color: #555;"><%= project.description %> — 📍 <em><%= project.location %></em></p>
+                </li>
+            <% }); %>
+        </ul>
+    </main>
 <%- include('partials/footer') %>
