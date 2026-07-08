@@ -17,7 +17,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
 
 const handleHome = async (req, res) => {
-    res.render('home', { title: 'Home' });
+    res.render('index', { title: 'Home' });
 };
 
 const handleOrganizations = async (req, res) => {
