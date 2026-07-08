@@ -44,7 +44,17 @@ app.get('/organizations', async (req, res) => {
         res.status(500).send("Internal Server Error");
     }
 });
-app.get('/projects', handleProjects);
+app.get('/projects', async (req, res) => {
+    try {
+        const projects = await getAllProjects();
+        const title = 'Upcoming Service Projects';
+
+        res.render('projects', { title, projects });
+    } catch (error) {
+        console.error("Error loading projects view:", error);
+        res.status(500).send("Internal Server Error");
+    }
+});
 app.get('/categories', handleCategories);
 const PORT = process.env.PORT || 3000;
 const NODE_ENV = process.env.NODE_ENV || 'development';
