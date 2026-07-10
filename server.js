@@ -4,6 +4,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { testConnection } from './models/db.js';
 import { getAllOrganizations } from './models/organizations.js';
+import { getAllProjects } from './models/projects.js';
 
 const app = express();
 const port = process.env.PORT || 3000;
