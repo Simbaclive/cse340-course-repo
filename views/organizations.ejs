@@ -1,17 +1,17 @@
 <%- include('partials/header') %>
-    <main>
-        <h1><%= title %></h1>
-        
-        <p>Here are a few of our partner organizations:</p>
-        <ul class="org-list">
-            <% organizations.forEach(organization => { %>
-                <li>
-                    <img src="/images/<%= organization.logo_filename %>" alt="<%= organization.name %> logo">
-                    <strong><%= organization.name %></strong>: <%= organization.description %>
-                    <br>
-                    <a href="mailto:<%= organization.contact_email %>">Contact Email</a>
-                </li>
-            <% }); %>
-        </ul>
-    </main>
+<main>
+    
+    <p>Here are a few of our partner organizations:</p>
+    
+    <ul class="card-grid">
+        <% organizations.forEach(org => { %>
+            <li class="card">
+                <img src="/images/<%= org.logo_filename %>" alt="<%= org.name %>" class="card-img">
+                <h3><%= org.name %></h3>
+                <p><%= org.description %></p>
+                <a href="mailto:<%= org.contact_email %>">Contact Email</a>
+            </li>
+        <% }); %>
+    </ul>
+</main>
 <%- include('partials/footer') %>
