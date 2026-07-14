@@ -1,0 +1,18 @@
+<%- include('partials/header') %>
+<main>
+    
+    <p>Join us in serving our communities at one of our upcoming group events:</p>
+
+    <ul class="card-grid">
+        <% projects.forEach(project => { %>
+            <% const formattedDate = new Date(project.date).toLocaleDateString('en-US', { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' }); %>
+            <li class="card">
+                <h3><%= project.title %></h3>
+                <p><strong>Date:</strong> <%= formattedDate %></p>
+                <p><em>Organization: <%= project.organization_name %></em></p>
+                <p><%= project.description %></p>
+            </li>
+        <% }); %>
+    </ul>
+</main>
+<%- include('partials/footer') %>
