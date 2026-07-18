@@ -1,0 +1,13 @@
+<%- include('partials/header') %>
+
+<main class="container">
+    
+    
+    <% categories.forEach(category => { %>
+        <div class="card">
+            <h3><a href="/category/<%= category.category_id %>"><%= category.category_name %></a></h3>
+        </div>
+    <% }); %>
+</main>
+
+<%- include('partials/footer') %>
