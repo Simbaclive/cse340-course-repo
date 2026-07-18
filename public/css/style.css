@@ -39,4 +39,35 @@ main { flex: 1; max-width: 1000px; margin: 2rem auto; padding: 2rem; background:
     margin-bottom: 15px;
 }
 
+
+
+.project-card {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 15px;
+    background-color: #ffffff;
+}
+
+.project-card h3 {
+    margin-top: 0;
+    color: #0056b3;
+}
+
+.project-card a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.project-card a:hover {
+    text-decoration: underline;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+
 footer { text-align: center; padding: 1rem; background: #e4e4e7; font-size: 0.9rem; }
