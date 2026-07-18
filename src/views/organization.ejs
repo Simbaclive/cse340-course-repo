@@ -1,11 +1,13 @@
 <%- include('partials/header') %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title><%= title %></title>
     <style>
-        body { font-family: 'Segoe UI', Tahoma, sans-serif; line-height: 1.6; max-width: 800px; margin: 40px auto; padding: 0 20px; color: #333; }
+     
+        .content { max-width: 800px; margin: 40px auto; padding: 0 20px; }
         h1 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px; }
         .contact-info { background: #f4f4f9; padding: 10px; border-radius: 5px; }
         .project-list { list-style: none; padding: 0; }
@@ -14,25 +16,27 @@
     </style>
 </head>
 <body>
-    
-    <p><%= organizationDetails.description %></p>
-    
-    <div class="contact-info">
-        <strong>Contact:</strong> <a href="mailto:<%= organizationDetails.contact_email %>"><%= organizationDetails.contact_email %></a>
-    </div>
+    <div class="content"> <!-- Wrap content in a div to manage width -->
+        <h1><%= organizationDetails.name %></h1>
+        <p><%= organizationDetails.description %></p>
+        
+        <div class="contact-info">
+            <strong>Contact:</strong> <a href="mailto:<%= organizationDetails.contact_email %>"><%= organizationDetails.contact_email %></a>
+        </div>
 
-    <h2>Projects</h2>
-    <% if (projects.length > 0) { %>
-        <ul class="project-list">
-            <% projects.forEach(project => { %>
-                <li class="project-item">
-                    <h3><%= project.title %></h3>
-                    <p><strong>Location:</strong> <%= project.location %></p>
-                </li>
-            <% }); %>
-        </ul>
-    <% } else { %>
-        <p>No projects currently listed for this organization.</p>
-    <% } %>
+        <h2>Projects</h2>
+        <% if (projects.length > 0) { %>
+            <ul class="project-list">
+                <% projects.forEach(project => { %>
+                    <li class="project-item">
+                        <h3><a href="/project/<%= project.project_id %>"><%= project.title %></a></h3>
+                        <p><strong>Location:</strong> <%= project.location %></p>
+                    </li>
+                <% }); %>
+            </ul>
+        <% } else { %>
+            <p>No projects currently listed for this organization.</p>
+        <% } %>
+    </div>
 </body>
 </html>
