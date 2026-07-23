@@ -29,7 +29,7 @@ const getProjectsByCategoryId = async (categoryId) => {
 const getCategoriesByProjectId = async (projectId) => {
     const query = `
         SELECT c.* 
-        FROM public.category c
+        FROM categories c
         JOIN project_categories pc ON c.category_id = pc.category_id
         WHERE pc.project_id = $1`;
     const result = await db.query(query, [projectId]);
