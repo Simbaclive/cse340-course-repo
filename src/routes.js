@@ -70,4 +70,9 @@ router.post('/register', processRegistration);
 router.get('/logout', processLogout);
 router.get('/dashboard', requireLogin, buildDashboardView);
 
+router.get('/new-category', requireLogin, requireAdmin, renderNewCategoryForm);
+router.post('/new-category', requireLogin, requireAdmin, categoryValidationRules, processNewCategory);
+
+router.get('/edit-category/:id', requireLogin, requireAdmin, renderEditCategoryForm);
+router.post('/edit-category/:id', requireLogin, requireAdmin, categoryValidationRules, processEditCategory);
 export default router;
