@@ -43,6 +43,12 @@ app.use((req, res, next) => {
 });
 
 app.use((req, res, next) => {
+    res.locals.loggedin = req.session.loggedin || false;
+    res.locals.accountData = req.session.accountData || null;
+    next();
+});
+
+app.use((req, res, next) => {
     res.locals.NODE_ENV = NODE_ENV;
     next();
 });
