@@ -1,0 +1,23 @@
+<%- include('partials/header') %>
+<main>
+    
+    <p>Here are a few of our partner organizations:</p>
+    
+    <ul class="card-grid">
+        <% organizations.forEach(org => { %>
+            <li class="card">
+                
+                <a href="/organization/<%= org.organization_id %>">
+                    <img src="/images/<%= org.logo_filename %>" alt="<%= org.name %>" class="card-img">
+                </a>
+                <h3>
+                 
+                    <a href="/organization/<%= org.organization_id %>"><%= org.name %></a>
+                </h3>
+                <p><%= org.description %></p>
+                <a href="mailto:<%= org.contact_email %>">Contact Email</a>
+            </li>
+        <% }); %>
+    </ul>
+</main>
+<%- include('partials/footer') %>
