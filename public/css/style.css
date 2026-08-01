@@ -177,7 +177,63 @@ main { flex: 1; max-width: 1000px; margin: 2rem auto; padding: 2rem; background:
     background: #dbeafe;
     color: var(--primary);
 }
+/* Project details */
+.project-details {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
 
+.category-tags {
+    margin-top: 15px;
+}
+/* Organization details */
+.org-logo {
+    max-width: 150px;
+    height: auto;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    display: block;
+}
+
+.contact-info {
+    background: #f4f4f9;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 15px;
+}
+
+.project-list {
+    list-style: none;
+    padding: 0;
+}
+
+.project-item {
+    background: #fff;
+    border: 1px solid #ddd;
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.project-item h3 {
+    margin: 0 0 5px 0;
+    color: #2980b9;
+}
+.tag {
+    display: inline-block;
+    background-color: #e0e0e0;
+    padding: 5px 10px;
+    margin-right: 5px;
+    border-radius: 4px;
+    text-decoration: none;
+    color: #333;
+}
+
+.tag:hover {
+    background-color: #d0d0d0;
+}
 .role-badge.client {
     background: #e5e7eb;
     color: #374151;
