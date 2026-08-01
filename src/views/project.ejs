@@ -1,0 +1,24 @@
+<%- include('partials/header') %>
+<main class="container">
+    <div class="project-details">
+        <p><%= project.description %></p>
+        <p><strong>Date:</strong> <%= project.date %></p>
+        <p><strong>Location:</strong> <%= project.location %></p>
+        <p><strong>Organization:</strong> <a href="/organization/<%= project.organization_id %>"><%= project.organization_name %></a></p>
+
+        <div class="category-tags">
+            <strong>Categories:</strong>
+            <% categories.forEach(category => { %>
+                <a href="/category/<%= category.category_id %>" class="tag"><%= category.category_name %></a>
+            <% }); %>
+        </div>
+
+        <% if (locals.accountData && accountData.role === 'Admin') { %>
+            <p><a href="/edit-project/<%= project.project_id %>" class="btn-edit">Edit Project</a></p>
+        <% } %>
+
+        <br>
+        <a href="/projects">Back to Projects</a>
+    </div>
+</main>
+<%- include('partials/footer') %>
