@@ -1,0 +1,31 @@
+<%- include('partials/header') %>
+<main class="container">
+    <% if (typeof errors !== 'undefined' && errors.length > 0) { %>
+        <ul class="error-list">
+            <% errors.forEach(error => { %>
+                <li><%= error.msg %></li>
+            <% }) %>
+        </ul>
+    <% } %>
+    <form action="/new-organization" method="POST">
+        <div class="form-group">
+            <label for="name">Organization Name:</label>
+            <input type="text" id="name" name="name" required maxlength="150" value="<%= formData && formData.name ? formData.name : '' %>">
+        </div>
+        <div class="form-group">
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" required><%= formData && formData.description ? formData.description : '' %></textarea>
+        </div>
+        <div class="form-group">
+            <label for="contact_email">Contact Email:</label>
+            <input type="email" id="contact_email" name="contact_email" required maxlength="255" value="<%= formData && formData.contact_email ? formData.contact_email : '' %>">
+        </div>
+        <div class="form-group">
+            <label for="logo_filename">Logo Filename:</label>
+            <input type="text" id="logo_filename" name="logo_filename" required maxlength="255" value="<%= formData && formData.logo_filename ? formData.logo_filename : '' %>" placeholder="e.g. org4.jpg">
+        </div>
+        <button type="submit" class="btn">Create Organization</button>
+    </form>
+    <a href="/organizations">Back to Organizations</a>
+</main>
+<%- include('partials/footer') %>

@@ -1,0 +1,33 @@
+<%- include('partials/header') %>
+<main class="container">
+    <div class="organization-details">
+        <% if (organizationDetails.logo_filename) { %>
+            <img src="/images/<%= organizationDetails.logo_filename %>" alt="<%= organizationDetails.name %> Logo" class="org-logo">
+        <% } %>
+
+        <p><%= organizationDetails.description %></p>
+
+        <div class="contact-info">
+            <strong>Contact:</strong> <a href="mailto:<%= organizationDetails.contact_email %>"><%= organizationDetails.contact_email %></a>
+        </div>
+
+        <% if (locals.accountData && accountData.role === 'Admin') { %>
+            <p><a href="/edit-organization/<%= organizationDetails.organization_id %>" class="btn-edit">Edit Organization</a></p>
+        <% } %>
+
+        <h2>Projects</h2>
+        <% if (projects.length > 0) { %>
+            <ul class="project-list">
+                <% projects.forEach(project => { %>
+                    <li class="project-item">
+                        <h3><a href="/project/<%= project.project_id %>"><%= project.title %></a></h3>
+                        <p><strong>Location:</strong> <%= project.location %></p>
+                    </li>
+                <% }); %>
+            </ul>
+        <% } else { %>
+            <p>No projects currently listed for this organization.</p>
+        <% } %>
+    </div>
+</main>
+<%- include('partials/footer') %>

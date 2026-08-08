@@ -1,0 +1,30 @@
+<%- include('partials/header') %>
+<main>
+    
+    <p>Here are a few of our partner organizations:</p>
+
+    <% if (locals.accountData && accountData.role === 'Admin') { %>
+        <p><a href="/new-organization" class="btn">Add New Organization</a></p>
+    <% } %>
+    
+    <ul class="card-grid">
+        <% organizations.forEach(org => { %>
+            <li class="card">
+                
+                <a href="/organization/<%= org.organization_id %>">
+                    <img src="/images/<%= org.logo_filename %>" alt="<%= org.name %>" class="card-img">
+                </a>
+                <h3>
+                 
+                    <a href="/organization/<%= org.organization_id %>"><%= org.name %></a>
+                </h3>
+                <p><%= org.description %></p>
+                <a href="mailto:<%= org.contact_email %>">Contact Email</a>
+                <% if (locals.accountData && accountData.role === 'Admin') { %>
+                    <p><a href="/edit-organization/<%= org.organization_id %>" class="btn-edit">Edit</a></p>
+                <% } %>
+            </li>
+        <% }); %>
+    </ul>
+</main>
+<%- include('partials/footer') %>
