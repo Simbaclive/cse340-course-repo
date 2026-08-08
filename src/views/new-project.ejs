@@ -1,0 +1,42 @@
+<%- include('partials/header') %>
+<main class="container">
+    <% if (typeof errors !== 'undefined' && errors.length > 0) { %>
+        <ul class="error-list">
+            <% errors.forEach(error => { %>
+                <li><%= error.msg %></li>
+            <% }) %>
+        </ul>
+    <% } %>
+    <form action="/new-project" method="POST">
+        <div class="form-group">
+            <label for="organization_id">Organization:</label>
+            <select id="organization_id" name="organization_id" required>
+                <option value="">-- Select Organization --</option>
+                <% organizations.forEach(org => { %>
+                    <option value="<%= org.organization_id %>" <%= formData && formData.organization_id == org.organization_id ? 'selected' : '' %>>
+                        <%= org.name %>
+                    </option>
+                <% }); %>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="title">Project Title:</label>
+            <input type="text" id="title" name="title" required maxlength="150" value="<%= formData && formData.title ? formData.title : '' %>">
+        </div>
+        <div class="form-group">
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" required><%= formData && formData.description ? formData.description : '' %></textarea>
+        </div>
+        <div class="form-group">
+            <label for="location">Location:</label>
+            <input type="text" id="location" name="location" required maxlength="255" value="<%= formData && formData.location ? formData.location : '' %>">
+        </div>
+        <div class="form-group">
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" required value="<%= formData && formData.date ? formData.date : '' %>">
+        </div>
+        <button type="submit" class="btn">Create Project</button>
+    </form>
+    <a href="/projects">Back to Projects</a>
+</main>
+<%- include('partials/footer') %>
