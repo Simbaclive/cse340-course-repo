@@ -255,4 +255,28 @@ main { flex: 1; max-width: 1000px; margin: 2rem auto; padding: 2rem; background:
     color: #611a15;
 }
 
+.volunteer-section {
+    margin: 1rem 0;
+}
+
+.volunteer-status {
+    font-weight: bold;
+    color: var(--primary);
+}
+
+.btn-remove {
+    background: #dc2626;
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-remove:hover {
+    opacity: 0.9;
+}
+
+
 footer { text-align: center; padding: 1rem; background: #e4e4e7; font-size: 0.9rem; }
